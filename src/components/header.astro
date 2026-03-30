@@ -1,0 +1,78 @@
+---
+import Link from "./link.astro";
+
+const navLinks = [
+  { href: "/research", label: "Research" },
+  { href: "/publications", label: "Publications" },
+  { href: "/media", label: "Media" },
+  { href: "/contact", label: "Contact" },
+  { href: "/cv", label: "CV" },
+  { href: "/internships", label: "Internships" },
+];
+const currentPath = Astro.url.pathname;
+const isActive = (path: any) => currentPath === path;
+---
+
+<header class="header-bg text-white px-4 py-6 sticky top-0 z-50 shadow-md">
+  <div class="flex items-center justify-between max-w-7xl mx-auto">
+    <!-- Logo -->
+    <Link href="/" class="flex items-center gap-4 cursor-pointer">
+      <!-- Lab name -->
+      <h1 class="text-xl font-semibold whitespace-nowrap">Khatib Lab</h1>
+
+      <!-- Department section (hidden on mobile) -->
+      <div class="hidden sm:flex items-center gap-4">
+        <!-- Divider -->
+        <div class="w-px h-10 bg-white/30"></div>
+
+        <!-- Department text -->
+        <div class="text-sm leading-tight flex flex-col gap-1">
+          <div class="text-base font-semibold">Department of Computer and Information Science</div>
+          <div>University of Massachusetts Dartmouth</div>
+        </div>
+      </div>
+    </Link>
+
+    <!-- Desktop navigation -->
+    <nav class="hidden desktop:flex gap-8 items-center text-white text-md">
+      {
+        navLinks.map((link) => (
+          <Link
+            href={link.href}
+            class={`nav-link ${isActive(link.href) ? "nav-active" : ""}`}
+          >
+            {link.label}
+          </Link>
+        ))
+      }
+    </nav>
+
+    <!-- Hamburger -->
+    <button id="menu-btn" class="desktop:hidden flex flex-col gap-1">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden flex-col gap-4 mt-4 desktop:hidden">
+    {
+      navLinks.map((link) => (
+        <Link href={link.href} class="nav-link block">
+          {link.label}
+        </Link>
+      ))
+    }
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  btn?.addEventListener("click", () => {
+    btn.classList.toggle("open");
+    menu?.classList.toggle("hidden");
+  });
+</script>

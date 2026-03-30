@@ -1,0 +1,23 @@
+---
+const {
+  variant = "primary", // primary | secondary | ghost
+  type = "button",
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+const base =
+  "px-3 py-1.5 text-sm rounded-md transition focus:outline-none";
+
+const variants = {
+  primary: "bg-neutral-800 text-white hover:bg-neutral-900",
+  secondary: "bg-neutral-200 text-neutral-800 hover:bg-neutral-300",
+  ghost: "text-neutral-700 hover:bg-neutral-100"
+};
+
+const styles = `${base} ${variants[variant]} ${className}`;
+---
+
+<button type={type} class={styles} {...rest}>
+  <slot />
+</button>
