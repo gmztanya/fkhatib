@@ -1,11 +1,124 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
+import media from "../data/media.json";
+import VideoCard from "../components/videoCard.astro";
+
+import Link from "../components/link.astro";
+
+const featuredVideos = media.featuredVideos;
+const moreVideos = media.otherVideos;
+
+const otherMediaGrouped = Object.values(
+  media.otherMedia.reduce((acc, item) => {
+    if (!acc[item.source]) {
+      acc[item.source] = {
+        source: item.source,
+        items: []
+      };
+    }
+    acc[item.source].items.push(item);
+    return acc;
+  }, {})
+);
 ---
 
 <MainLayout>
+  <h1 class="text-4xl font-bold mb-6">Media</h1>
 
-<h1 class="text-4xl font-bold">
-  Media
-</h1>
+  <!-- Featured Section -->
+  <h2 class="text-2xl font-semibold mb-4">Featured Videos</h2>
+
+  <div class="relative">
+    <!-- carousel -->
+    <div class="embla overflow-hidden">
+      <div class="embla__container flex gap-4 m-4">
+        {
+          featuredVideos.map((video) => (
+            <div class="embla__slide embla-slide flex-[0_0_85%] sm:flex-[0_0_75%] md:flex-[0_0_65%] lg:flex-[0_0_55%]">
+              <VideoCard video={video} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button id="prevBtn" class="carousel-btn left-4">‹</button>
+    <button id="nextBtn" class="carousel-btn right-4">›</button>
+  </div>
+
+  <!-- More Videos -->
+  {
+    moreVideos.length > 0 && (
+      <div class="flex justify-end mt-2">
+        <button
+          id="showMoreBtn"
+          class="text-sm font-medium text-neutral-700 hover:underline"
+        >
+          More Videos
+        </button>
+      </div>
+
+      <div id="moreVideosSection" class="hidden mt-6">
+        <h2 class="text-2xl font-semibold mb-4">More Videos</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {moreVideos.map((video) => <VideoCard video={video} />)}
+        </div>
+      </div>
+    )
+  }
+
+  <!-- Other Media Links -->
+  <div class="mt-8">
+    <h2 class="text-2xl font-semibold mb-4">Other Media Mentions</h2>
+    <div class="space-y-6">
+      {
+        otherMediaGrouped.map((group) => (
+          <div>
+            
+            <!-- Media Source -->
+            <h3 class="text-lg font-semibold text-neutral-900 mb-2">
+              {group.source}
+            </h3>
+
+            <!-- Media Links -->
+            <ul class="space-y-1">
+              {group.items.map((item) => (
+                <li>
+                  <Link
+                    href={item.url}
+                    newTab
+                    class="underline text-base font-semibold"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 
 </MainLayout>
+
+<!-- Load Embla script -->
+<script type="module" src="src/scripts/embla.js"></script>
+
+<!-- More Videos Button Script  -->
+<script>
+  const btn = document.getElementById('showMoreBtn');
+  const section = document.getElementById('moreVideosSection');
+
+  if (btn && section) {
+    btn.addEventListener('click', () => {
+      section.classList.remove('hidden');
+      btn.style.display = 'none'; // hide button after click
+
+      // Optional: smooth scroll
+      section.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+</script>

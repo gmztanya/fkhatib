@@ -1,0 +1,37 @@
+{
+    "featuredVideos": [
+        {
+            "title": "Tackling Covid-19 with Foldit",
+            "subtitle": "Citizen Science Association Webinar",
+            "videoUrl": "https://www.youtube.com/embed/OX36TJQfaIA?start=965"
+        },
+        {
+            "title": "TEDx PantheonSorbonne",
+            "subtitle": "Paris, France",
+            "videoUrl": "https://www.youtube.com/embed/C6CZZIVPLns"
+        },
+        {
+            "title": "Public Lecture at Brown University",
+            "subtitle": "",
+            "videoUrl": "https://www.youtube.com/embed/Tu2uMiBGke0"
+        },
+        {
+            "title": "The Contenders",
+            "subtitle": "A Focus Forward short film",
+            "videoUrl": "https://player.vimeo.com/video/57394084"
+        }
+    ],
+    "otherVideos": [],
+    "otherMedia": [
+        {
+            "source": "NPR",
+            "title": "All Things Considered (click to view)",
+            "url": "https://www.npr.org/2011/10/02/140979241/when-scientists-fail-its-time-to-call-in-the-gamers"
+        },
+        {
+            "source": "Providence Business News",
+            "title": "Five Questions With: Firas Khatib (click to view)",
+            "url": "https://pbn.com/five-questions-with-firas-khatib/"
+        }
+    ]
+}

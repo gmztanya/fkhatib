@@ -1,0 +1,67 @@
+---
+const { video } = Astro.props;
+const { title, subtitle, videoUrl } = video;
+---
+
+<div
+  class="video-card border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-sm"
+>
+  <!-- Video Container -->
+  <div
+    class="video-container relative aspect-video bg-neutral-100"
+    data-video-url={videoUrl}
+  >
+    <!-- Loader -->
+    <div
+      class="loader absolute inset-0 flex flex-col items-center justify-center"
+    >
+      <div
+        class="w-6 h-6 border-2 border-neutral-400 border-t-transparent rounded-full animate-spin mb-2"
+      >
+      </div>
+      <p class="text-xs text-neutral-500">Loading video...</p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 text-center">
+    <h3 class="text-sm font-semibold text-neutral-900 mb-1">
+      {title}
+    </h3>
+
+    {subtitle && <p class="text-xs text-neutral-600">{subtitle}</p>}
+  </div>
+</div>
+
+<script>
+  // Loading videos in iframes once they are ready to improve performance and user experience  
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll(".video-container");
+
+    containers.forEach((container) => {
+      const url = container.getAttribute("data-video-url") || "";
+
+      // add iframes dynamically
+      const iframe = document.createElement("iframe");
+      iframe.src = url;
+      iframe.className =
+        "absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300";
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allow", "autoplay; fullscreen");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("loading", "lazy");
+
+      // When iframe content is loaded and ready
+      iframe.onload = () => {
+        iframe.classList.remove("opacity-0");
+        iframe.classList.add("opacity-100");
+
+        // Remove loader after iframe is ready
+        const loader = container.querySelector(".loader");
+        if (loader) loader.remove();
+      };
+
+      container.appendChild(iframe);
+    });
+  });
+</script>

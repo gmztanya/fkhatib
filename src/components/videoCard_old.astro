@@ -1,0 +1,46 @@
+---
+const { video } = Astro.props;
+
+const { title, subtitle, youtubeId, thumbnail, videoUrl } = video;
+
+// Fallback thumbnail (YouTube standard)
+const thumb =
+  thumbnail ||
+  (youtubeId ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` : "");
+
+// Fallback link
+const link =
+  videoUrl ||
+  (youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}` : "#");
+---
+
+<a
+  href={link}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="block rounded-xl overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition"
+>
+  <!-- Thumbnail -->
+  <div class="relative">
+    <img
+      src={thumb}
+      alt={title}
+      class="w-full h-64 md:h-72 lg:h-80 object-cover"
+      loading="lazy"
+    />
+
+    <!-- Play Overlay -->
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="bg-black/60 text-white rounded-full p-3 text-lg">▶</div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 text-center">
+    <h3 class="text-sm font-semibold text-neutral-900 mb-1">
+      {title}
+    </h3>
+
+    {subtitle && <p class="text-xs text-neutral-600">{subtitle}</p>}
+  </div>
+</a>

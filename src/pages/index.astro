@@ -1,11 +1,56 @@
 ---
-import MainLayout from "../layouts/mainLayout.astro";
+import GradientLayout from "../layouts/gradientLayout.astro";
+import Button from "../components/button.astro";
 ---
 
-<MainLayout>
+<GradientLayout>
+  <section class="relative px-6 py-16">
+    <!-- Gradient Overlay (improves readability) -->
+    <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent"></div>
 
-<h1 class="text-4xl font-bold">
-  Welcome to the Khatib Lab
-</h1>
+    <!-- CONTENT -->
+    <div class="relative max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-[1.4fr_1fr] gap-6 items-center">
+        <!-- LEFT CONTENT -->
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            Scientific discovery by video game players
+          </h1>
 
-</MainLayout>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            Our research group is interested in engaging the public to help us
+            solve difficult scientific problems. We harness the collective
+            brainpower of humans worldwide to tackle critical problems posed in
+            computational biology. We have worked with and studied how citizen
+            scientists of the online protein folding video game Foldit—with
+            little or no prior biochemistry experience—uncovered knowledge that
+            eluded scientists for years. Our group is interested in combining
+            the power of humans and computers to tackle other difficult
+            scientific problems.
+          </p>
+
+          <!-- CTA -->
+          <!-- <button
+            class="bg-[#1f2d3d] text-white px-8 py-3 rounded-md hover:bg-[#16212c] transition transform hover:scale-105 shadow-md"
+          >
+            Be Part of the Discovery
+          </button> -->
+
+          <Button>
+            Be Part of the Discovery
+          </Button>
+
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="flex justify-center md:justify-start">
+          <img
+            src="/images/protein.png"
+            alt="Protein structure"
+            class="w-4/5 md:w-full max-w-md drop-shadow-lg"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</GradientLayout>

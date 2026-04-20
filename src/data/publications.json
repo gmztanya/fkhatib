@@ -14,13 +14,17 @@
     "pdf": "https://www.cis.umassd.edu/~fkhatib/Papers/PDB-REDO.pdf"
   },
   {
-    "title": "Another Research Paper Title",
+    "title": "Reconstructing Biological Molecules with Help from Video Gamers",
     "authors": [
-      "Author A",
-      "Author B"
+      "Petrides A",
+      "Joosten R",
+      "Players F",
+      "Khatib F",
+      "Horowitz S"
     ],
-    "journal": "Nature Communications",
-    "year": 2023,
-    "pdf": "https://example.com/paper.pdf"
+    "journal": "Acta Crystallographica Section D",
+    "year": 2025,
+    "doi": "https://doi.org/10.1107/S2059798325008149",
+    "pdf": "https://www.cis.umassd.edu/~fkhatib/Papers/PDB-REDO.pdf"
   }
 ]
