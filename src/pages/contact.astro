@@ -1,11 +1,58 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
+import Card from "../components/card.astro";
 ---
 
 <MainLayout>
+  <h1 class="text-4xl font-bold mb-5">Contact</h1>
 
-<h1 class="text-4xl font-bold">
-  Contact
-</h1>
+  <p class="text-gray-600 mb-5">
+    Get in touch regarding research collaborations, student opportunities or
+    general inquiries.
+  </p>
+
+  <!-- GRID -->
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- LEFT COLUMN -->
+        <div class="space-y-4">
+
+          <Card>
+            <h2 class="font-semibold text-gray-900 mb-1">Email</h2>
+            <p class="text-gray-700">fkhatib@umassd.edu</p>
+          </Card>
+
+          <Card>
+            <h2 class="font-semibold text-gray-900 mb-1">Phone</h2>
+            <p class="text-gray-700">508 999 8265</p>
+          </Card>
+
+          <Card>
+            <h2 class="font-semibold text-gray-900 mb-1">Office</h2>
+            <p class="text-gray-700">
+              Dion Building, Room 307A<br />
+              Department of Computer and Information Science<br />
+              University of Massachusetts Dartmouth
+            </p>
+          </Card>
+
+          <Card>
+            <h2 class="font-semibold text-gray-900 mb-1">Fax</h2>
+            <p class="text-gray-700">508 999 9144</p>
+          </Card>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <Card class="p-4 flex flex-col">
+          <!-- MAP -->
+          <iframe
+              src="https://www.google.com/maps?q=Dion+Science+and+Engineering+Building+UMass+Dartmouth&output=embed"
+              class="w-full h-full rounded-md border-0"
+              loading="lazy"
+            ></iframe>
+        </Card>
+
+      </div>
 
 </MainLayout>

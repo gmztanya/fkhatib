@@ -1,11 +1,94 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
+import Divider from "../components/divider.astro";
+import Card from "../components/card.astro";
 ---
 
 <MainLayout>
+  <section class="">
+    <!-- HERO CARD -->
+    <Card class="p-6 md:p-10">
+      <section class="mb-5">
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+        >
+          <!-- NAME SECTION -->
+          <div>
+            <h1
+              class="text-3xl md:text-5xl font-light tracking-[0.2em] text-gray-900 uppercase"
+            >
+              Firaz Khatib, Ph.D.
+            </h1>
 
-<h1 class="text-4xl font-bold">
-  CV
-</h1>
+            <p class="mt-3 text-sm tracking-widest text-gray-600 uppercase">
+              Associate Professor
+            </p>
 
+            <p class="mt-3 text-sm tracking-widest text-gray-600 uppercase">
+              University of Massachusetts Dartmouth
+            </p>
+          </div>
+
+          <!-- IMAGE -->
+          <div class="flex justify-center md:justify-end">
+            <img
+              src="/images/fkhatib.jpg"
+              alt="Firas Khatib"
+              class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION CARD -->
+      <section class="mb-5">
+        <h2 class="text-2xl md:text-3xl font-semibold text-[#2f5f57]">
+          Education
+        </h2>
+
+        <Divider />
+
+        <ul class="mt-4 space-y-4">
+          <li class="text-gray-700 leading-relaxed">
+            Ph.D. in Bioinformatics (2002–2008), University of California, Santa
+            Cruz, CA
+          </li>
+          <li class="text-gray-700 leading-relaxed">
+            B.A. in Applied Mathematics (1997–2001), University of California,
+            Berkeley, CA
+          </li>
+        </ul>
+      </section>
+
+      <!-- EXPERIENCE CARD -->
+      <section>
+        <h2 class="text-2xl md:text-3xl font-semibold text-[#2f5f57]">
+          Research and Professional Experience
+        </h2>
+
+        <Divider />
+
+        <ul class="mt-4 space-y-4">
+          <li class="text-gray-700 leading-relaxed">
+            <strong>2008–2013:</strong> Postdoctoral fellow. Dr. David Baker; Department
+            of Biochemistry, University of Washington, Seattle, WA.
+          </li>
+          <li class="text-gray-700 leading-relaxed">
+            <strong>2005–2008:</strong> Graduate Student Researcher. Dr. Kevin Karplus;
+            Department of Biomolecular Engineering, University of California, Santa
+            Cruz, CA.
+          </li>
+          <li class="text-gray-700 leading-relaxed">
+            <strong>2002–2005:</strong> Graduate Student Researcher. Dr. Carol A.
+            Rohl; Department of Biomolecular Engineering, University of California,
+            Santa Cruz, CA.
+          </li>
+          <li class="text-gray-700 leading-relaxed">
+            <strong>2001:</strong> Undergraduate research. Dr. Lior Pachter; Department
+            of Mathematics, University of California, Berkeley, CA.
+          </li>
+        </ul>
+      </section>
+    </Card>
+  </section>
 </MainLayout>

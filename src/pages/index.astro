@@ -4,7 +4,7 @@ import Button from "../components/button.astro";
 ---
 
 <GradientLayout>
-  <section class="relative px-6 py-16">
+  <section class="relative flex-grow max-w-6xl mx-auto w-full px-6 py-10">
     <!-- Gradient Overlay (improves readability) -->
     <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent"></div>
 
@@ -30,12 +30,6 @@ import Button from "../components/button.astro";
           </p>
 
           <!-- CTA -->
-          <!-- <button
-            class="bg-[#1f2d3d] text-white px-8 py-3 rounded-md hover:bg-[#16212c] transition transform hover:scale-105 shadow-md"
-          >
-            Be Part of the Discovery
-          </button> -->
-
           <Button>
             Be Part of the Discovery
           </Button>
