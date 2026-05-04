@@ -1,30 +1,36 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
 import PublicationCard from '../components/publicationCard.astro';
+import PageHeading from "../components/pageHeading.astro";
+import PageSection from "../components/pageSection.astro";
+
 import publications from '../data/publications.json';
 ---
 
 <MainLayout>
 
-<h1 class="text-4xl font-bold mb-5">
-  Publications
-</h1>
+  <PageSection>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-  {publications.map((pub) => (
-    <PublicationCard publication={pub} />
-  ))}
-</div>
+    <PageHeading title="Publications" />
+
+    <!-- Publications Card Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {publications.map((pub) => (
+        <PublicationCard publication={pub} />
+      ))}
+    </div>
+
+  </PageSection>
 
 </MainLayout>
 
 <script>
   document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.copy-btn');
-    console.log(btn, btn?.getAttribute('data-citation'));
+    const target = e.target as HTMLElement;
+    const btn = target.closest('.copy-btn');
     if (!btn) return;
 
-    const text = btn.getAttribute('data-citation');
+    const text = btn.getAttribute('data-citation') as string;
 
     navigator.clipboard.writeText(text).then(() => {
       const original = btn.textContent;

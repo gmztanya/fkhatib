@@ -3,6 +3,11 @@
 :root {
   --color-primary: #373737;
   --color-accent: #8AB83F;
+  --color-white: #F5F5F5;
+  --color-font: #1f2937;
+
+  --color-font-strong: #111827;   /* headings */
+  --color-font-muted: #6b7280;    /* lighter text */
 }
 
 @theme {
@@ -11,13 +16,44 @@
 
 body {
   background: #e5e7eb;
-  color: #1f2937;
+  color: var(--color-font);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Text Styles */
+.heading-lg {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-font-strong);
+  line-height: 1.25;         
+}
+
+.heading-md {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-font-strong);
+}
+
+.heading-sm {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-font-strong);
 }
 
 
+.text-strong {
+  color: var(--color-font-strong);
+}
+
+.text-muted {
+  color: var(--color-font-muted);
+}
+
+/* Header - Footer */
 .header-bg, .footer-bg {
   background-color: var(--color-primary);
-  color: #F5F5F5;
+  color: var(--color-white);
 }
 
 /* hamburger lines */
@@ -25,7 +61,7 @@ body {
 .hamburger-line {
   width: 24px;
   height: 3px;
-  background: white;
+  background:  var(--color-white);;
   transition: all 0.3s ease;
 }
 
@@ -95,7 +131,7 @@ body {
 }
 
 .carousel-btn:hover {
-  background: white;
+  background: var(--color-white);;
 }
 #prevBtn{
   left: -4%;

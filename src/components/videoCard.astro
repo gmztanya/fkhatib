@@ -19,17 +19,17 @@ const { title, subtitle, videoUrl } = video;
         class="w-6 h-6 border-2 border-neutral-400 border-t-transparent rounded-full animate-spin mb-2"
       >
       </div>
-      <p class="text-xs text-neutral-500">Loading video...</p>
+      <p class="text-xs text-muted">Loading video...</p>
     </div>
   </div>
 
   <!-- Content -->
   <div class="p-4 text-center">
-    <h3 class="text-sm font-semibold text-neutral-900 mb-1">
+    <h3 class="text-md font-semibold text-strong mb-1">
       {title}
     </h3>
 
-    {subtitle && <p class="text-xs text-neutral-600">{subtitle}</p>}
+    {subtitle && <p class="text-sm text-strong">{subtitle}</p>}
   </div>
 </div>
 

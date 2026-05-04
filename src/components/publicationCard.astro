@@ -11,27 +11,27 @@ const { title, authors, journal, year, doi, pdf } = publication;
   class="border border-neutral-200 rounded-xl p-5 bg-white shadow-sm hover:shadow-md transition"
 >
   <!-- Top Meta -->
-  <p class="text-sm text-neutral-500 mb-2">
+  <p class="text-sm text-muted mb-2">
     {year} · {journal}
   </p>
 
   <!-- Title -->
-  <h3 class="text-lg font-semibold text-neutral-900 mb-2">
+  <h3 class="text-lg font-semibold text-strong mb-2">
     {title}
   </h3>
 
   <!-- Authors -->
-  <p class="text-sm text-neutral-600 mb-3">
+  <p class="text-sm italic text-strong mb-3">
     {authors.join(", ")}
   </p>
 
-  <!-- DOI (ONLY IF EXISTS) -->
+  <!-- Doi (Only if exists) -->
   {
     doi && (
       <a
         href={doi}
         target="_blank"
-        class="text-sm text-neutral-700 underline mb-3 block"
+        class="text-sm text-strong underline mb-3 block"
       >
         {doi.replace("https://", "")}
       </a>
@@ -53,7 +53,7 @@ const { title, authors, journal, year, doi, pdf } = publication;
           href={pdf}
           external
           newTab
-          class="px-3 py-3 text-sm bg-neutral-200 text-neutral-800 rounded-md no-underline"
+          class="px-3 py-3 text-sm bg-neutral-200 text-strong rounded-md no-underline"
         >
           View PDF
         </Link>
