@@ -2,15 +2,18 @@
 import MainLayout from "../layouts/mainLayout.astro";
 import Divider from "../components/divider.astro";
 import Card from "../components/card.astro";
-import PageHeading from "../components/pageHeading.astro";
+import Heading from "../components/pageHeading.astro";
 import PageSection from "../components/pageSection.astro";
+
+import cv from "../data/cv.json";
+
 ---
 
 <MainLayout>
 
   <PageSection class="space-y-4">
 
-    <PageHeading title="CV" />
+    <Heading level="h1" size="xl"> CV </Heading>
 
     <!-- Profile Card -->
     <Card>
@@ -18,24 +21,21 @@ import PageSection from "../components/pageSection.astro";
 
         <!-- Name -->
         <div>
-          <h1 class="heading-md tracking-widest uppercase">
-            Firas Khatib, Ph.D.
-          </h1>
-
+          <Heading level="h2" size="lg" class="tracking-widest uppercase"> {cv.profile.name} </Heading>
           <p class="mt-3 text-md">
-            Associate Professor
+            {cv.profile.title}
           </p>
 
           <p class="mt-1 text-md">
-            University of Massachusetts Dartmouth
+            {cv.profile.org}
           </p>
         </div>
 
         <!-- Image -->
         <div class="flex justify-center md:justify-end">
           <img
-            src="/images/fkhatib.jpg"
-            alt="Firas Khatib"
+            src={cv.profile.image}
+            alt={cv.profile.name}
             class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md"
           />
         </div>
@@ -45,43 +45,30 @@ import PageSection from "../components/pageSection.astro";
 
     <!-- Education -->
     <Card>
-      <h2 class="heading-md">
-        Education
-      </h2>
+      <Heading level="h3" size="md" class="tracking-widest uppercase"> Education </Heading>
 
       <Divider />
 
       <ul class="mt-4 space-y-4">
-        <li>
-          Ph.D. in Bioinformatics (2002 - 2008), University of California, Santa Cruz, CA
-        </li>
-        <li>
-          B.A. in Applied Mathematics (1997 - 2001), University of California, Berkeley, CA
-        </li>
+        {cv.education.map((item) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </Card>
 
     <!-- Experience -->
     <Card>
-      <h2 class="heading-md">
-        Research and Professional Experience
-      </h2>
+
+      <Heading level="h3" size="md" class="tracking-widest uppercase"> Research and Professional Experience </Heading>
 
       <Divider />
 
       <ul class="mt-4 space-y-4">
-        <li>
-          <strong>2008 - 2013:</strong> Postdoctoral fellow. Dr. David Baker; Department of Biochemistry, University of Washington, Seattle, WA.
-        </li>
-        <li>
-          <strong>2005 - 2008:</strong> Graduate Student Researcher. Dr. Kevin Karplus; Department of Biomolecular Engineering, University of California, Santa Cruz, CA.
-        </li>
-        <li>
-          <strong>2002 - 2005:</strong> Graduate Student Researcher. Dr. Carol A. Rohl; Department of Biomolecular Engineering, University of California, Santa Cruz, CA.
-        </li>
-        <li>
-          <strong>2001:</strong> Undergraduate research. Dr. Lior Pachter; Department of Mathematics, University of California, Berkeley, CA.
-        </li>
+        {cv.experience.map((exp) => (
+          <li>
+            <strong>{exp.period}:</strong> {exp.text}
+          </li>
+        ))}
       </ul>
     </Card>
 

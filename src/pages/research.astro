@@ -1,79 +1,79 @@
 ---
-import GradientLayout from "../layouts/gradientLayout.astro";
-import PageHeading from "../components/pageHeading.astro";
+import MainLayout from "../layouts/mainLayout.astro";
+import Heading from "../components/pageHeading.astro";
 import PageSection from "../components/pageSection.astro";
+import Link from "../components/link.astro";
+import Card from "../components/card.astro";
 ---
 
-<GradientLayout>
-
+<MainLayout>
   <PageSection>
+    <!-- Title -->
+    <Heading level="h1" size="xl">
+      Scientific discovery by video game players
+    </Heading>
 
-      <PageHeading title="Scientific discovery by video game players" />
-
-      <!-- Grid -->
-      <div class="relative grid md:grid-cols-[1.8fr_1fr] gap-8 items-start">
-        
-        <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent"></div>
-
-        <!-- Left Side Content -->
-        <div class="p-5 relative max-w-3xl">
-          <p class="mb-6">
+    <div>
+        <Card>
+            <!-- Intro (full width) -->
+            <p class="mb-2">
             The ability to determine the three dimensional structure of
-            disease-related proteins is essential to our understanding of how
-            they work and how they can be successfully targeted with drugs, yet
-            the gap between the number of known protein sequences and the number
-            of solved protein structures is growing every year. The unusual
-            approach of enlisting online gamers to tackle this problem has shown
-            promise with the protein-folding videogame Foldit. By leveraging
-            human puzzle solving, pattern-recognition, and 3D spatial reasoning,
-            Foldit players are able to outperform many state of the art protein
-            structure prediction methods.
-          </p>
+            disease-related proteins is essential to our understanding of how they
+            work and how they can be successfully targeted with drugs, yet the gap
+            between the number of known protein sequences and the number of solved
+            protein structures is growing every year. The unusual approach of
+            enlisting online gamers to tackle this problem has shown promise with
+            the protein-folding videogame Foldit. By leveraging human puzzle
+            solving, pattern-recognition, and 3D spatial reasoning, Foldit players
+            are able to outperform many state of the art protein structure
+            prediction methods.
+            </p>
 
-          <p class="mb-6">
-            Foldit players have been most successful in the refinement of
-            partially correct models. This field of structure prediction has
-            shown promise in solving crystal structures by molecular replacement
-            (MR), and purely computational methods for this purpose have already
-            proved successful. In one example where state-of-the-art methods
-            were unable to produce a suitable model, Foldit players created
-            models of sufficient quality for successful MR and subsequent
-            structure determination of a monomeric retroviral protease.
-          </p>
+            <!-- Grid Section -->
+            <div class="grid lg:grid-cols-[1.8fr_1fr] gap-8 items-start">
+            <!-- Left Side Content -->
+            <div class="">
+                <p class="mb-2">
+                Foldit players have been most successful in the refinement of
+                partially correct models. This field of structure prediction has
+                shown promise in solving crystal structures by molecular
+                replacement (MR), and purely computational methods for this
+                purpose have already proved successful. In one example where
+                state-of-the-art methods were unable to produce a suitable model,
+                Foldit players created models of sufficient quality for successful
+                MR and subsequent structure determination of a monomeric
+                retroviral protease.
+                </p>
 
-          <p class="mb-6">
-            Starting from a low-resolution NMR model (red), Foldit players
-            generated a model (green) of sufficient accuracy to provide an
-            unambiguous molecular replacement solution, allowing rapid
-            determination of the ultimate crystal structure (blue). Researchers
-            had been unable to solve this structure by molecular replacement for
-            over a decade. Foldit players managed to produce this model in ten
-            days without any experimental data.
-          </p>
+                <p class="mb-2">
+                Starting from a low-resolution NMR model (red), Foldit players
+                generated a model (green) of sufficient accuracy to provide an
+                unambiguous molecular replacement solution, allowing rapid
+                determination of the ultimate crystal structure (blue).
+                Researchers had been unable to solve this structure by molecular
+                replacement for over a decade. Foldit players managed to produce
+                this model in ten days without any experimental data.
+                </p>
 
-          <p class="mb-6">
-            Our current research focuses on providing Foldit players with
-            experimental data that automated methods currently cannot solve.
-            <span class="text-strong font-semibold">
-              If you are an experimentalist with electron density data for a
-              structure you have been unable to solve, please contact us
-            </span>
-            (using the Contact Information tab at the top).
-          </p>
-        </div>
+                <p class="mb-2">
+                <span class="text-strong font-semibold">
+                    If you are an experimentalist with electron density data for a
+                    structure you have been unable to solve, please
+                </span>
+                <Link href="/contact" variant="primary">contact us.</Link>
+                </p>
+            </div>
 
-        <!-- Right Side Image -->
-        <div class="flex justify-center md:justify-start">
-          <img
-            src="/images/protein.png"
-            alt="Protein structure"
-            class="w-full max-w-sm md:max-w-md drop-shadow-lg sticky top-24"
-          />
-        </div>
-
-      </div>
-
+            <!-- Right SIde Image -->
+            <div class="flex justify-center md:justify-start">
+                <img
+                src="/images/protein.png"
+                alt="Protein structure"
+                class="w-2/3 md:w-3/4 lg:w-4/5 max-w-md drop-shadow-lg"
+                />
+            </div>
+            </div>
+        </Card>
+    </div>
   </PageSection>
-
-</GradientLayout>
+</MainLayout>

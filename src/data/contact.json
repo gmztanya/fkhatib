@@ -1,0 +1,25 @@
+{
+  "intro": "Get in touch regarding research collaborations, student opportunities or general inquiries.",
+  "items": [
+    {
+      "title": "Email",
+      "value": "fkhatib@umassd.edu",
+      "icon": "/images/icons/mail.svg"
+    },
+    {
+      "title": "Phone",
+      "value": "508 999 8265",
+      "icon": "/images/icons/phone.svg"
+    },
+    {
+      "title": "Office",
+      "value": "Dion Building, Room 307A <br /> Department of Computer and Information Science <br /> University of Massachusetts Dartmouth",
+      "icon": "/images/icons/office.svg"
+    },
+    {
+      "title": "Fax",
+      "value": "508 999 9144",
+      "icon": "/images/icons/fax.svg"
+    }
+  ]
+}

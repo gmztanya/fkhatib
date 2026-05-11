@@ -1,52 +1,90 @@
 ---
 import GradientLayout from "../layouts/gradientLayout.astro";
+import Heading from "../components/pageHeading.astro";
+import PageSection from "../components/pageSection.astro";
 import Button from "../components/button.astro";
-import PageHeading from "../components/pageHeading.astro";
+import Link from "../components/link.astro";
+import Divider from "../components/divider.astro";
+import Card from "../components/card.astro";
 ---
 
 <GradientLayout>
+  <PageSection>
+    <!-- Heading -->
+    <div class="text-center">
+      <Heading level="h1" size="xl">
+        Scientific discovery by video game players
+      </Heading>
 
-  <section class="relative min-h-[calc(100vh-120px)] flex items-center px-6">
-
-    <!-- Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent"></div>
-
-    <div class="relative max-w-6xl mx-auto w-full">
-      <div class="grid md:grid-cols-[1.4fr_1fr] gap-4 md:gap-6 items-center">
-
-        <!-- Left Side Content -->
-        <div class="max-w-2xl">
-          <PageHeading title="Scientific discovery by video game players" class="md:text-5xl" />
-
-          <p class="mb-6">
-            Our research group is interested in engaging the public to help us
-            solve difficult scientific problems. We harness the collective
-            brainpower of humans worldwide to tackle critical problems posed in
-            computational biology. We have worked with and studied how citizen
-            scientists of the online protein folding video game Foldit - with
-            little or no prior biochemistry experience - uncovered knowledge that
-            eluded scientists for years. Our group is interested in combining
-            the power of humans and computers to tackle other difficult
-            scientific problems.
-          </p>
-
-          <Button>
-            Be Part of the Discovery
-          </Button>
-        </div>
-
-        <!-- Right Side Image -->
-        <div class="flex justify-center md:justify-start">
-          <img
-            src="/images/protein.png"
-            alt="Protein structure"
-            class="w-full max-w-lg md:max-w-xl drop-shadow-lg"
-          />
-        </div>
-
+      <div class="mt-5 mb-5 flex justify-center">
+        <Divider class="bg-[var(--color-accent)]" />
       </div>
     </div>
 
-  </section>
+    <!-- Content Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-6 lg:gap-6">
+      <Card>
+        <div class="text-center px-2">
+          <div class="mb-5 flex justify-center">
+            <img
+              src="images/icons/research.svg"
+              alt="research"
+              class="h-13 w-13"
+            />
+          </div>
+          <p class="leading-relaxed">
+            Our research group is interested in engaging the public to help us
+            solve difficult scientific problems. We harness the collective
+            brainpower of humans worldwide to tackle critical problems posed in
+            computational biology.
+          </p>
+        </div>
+      </Card>
 
+      <Card>
+        <div class="text-center px-2">
+          <div class="mb-5 flex justify-center">
+            <img src="images/icons/game.svg" alt="game" class="h-13 w-13" />
+          </div>
+          <p class="leading-relaxed">
+            Our research group is interested in engaging the public to help us
+            solve difficult scientific problems. We harness the collective
+            brainpower of humans worldwide to tackle critical problems posed in
+            computational biology.
+          </p>
+        </div>
+      </Card>
+
+      <Card>
+        <div class="text-center px-2">
+          <div class="mb-5 flex justify-center">
+            <img
+              src="images/icons/hci.svg"
+              alt="human computer collab"
+              class="h-13 w-13"
+            />
+          </div>
+          <p class="leading-relaxed">
+            Our research group is interested in engaging the public to help us
+            solve difficult scientific problems. We harness the collective
+            brainpower of humans worldwide to tackle critical problems posed in
+            computational biology.
+          </p>
+        </div>
+      </Card>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div
+      class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6"
+    >
+      <Link href="/research">
+        <Button variant="primary"> Explore Our Research </Button>
+      </Link>
+
+      <Link href="/contact">
+        <Button variant="secondary"> Contact Us </Button>
+      </Link>
+    </div>
+  </PageSection>
 </GradientLayout>

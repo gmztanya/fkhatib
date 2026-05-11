@@ -1,10 +1,23 @@
 ---
-const { href, newTab = false, class: className = "" } = Astro.props;
+const {
+  href,
+  newTab = false,
+  variant = "",
+  class: className = ""
+} = Astro.props;
+
+const variants: any = {
+  primary: "link link-primary",
+  muted: "link link-muted",
+  nav: "link link-nav"
+};
+
+const styles = `${variants[variant]} ${className}`;
 ---
 
 <a
   href={href}
-  class={className}
+  class={styles}
   target={newTab ? "_blank" : undefined}
   rel={newTab ? "noopener noreferrer" : undefined}
 >

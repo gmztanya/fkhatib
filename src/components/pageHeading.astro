@@ -1,12 +1,22 @@
 ---
 const {
-  title,
-  class: className = ""
+  level = "h1",       // h1, h2, h3...
+  size = "xl",        // xl | lg | md | sm
+  class: className = "",
 } = Astro.props;
+
+const Tag = level;
+
+const sizes: any = {
+  xl: "text-3xl md:text-4xl font-bold leading-[1.15] text-[color:var(--color-font-strong)] mb-4",
+  lg: "text-xl md:text-2xl font-semibold leading-tight text-[color:var(--color-font-strong)] mb-3",
+  md: "text-lg md:text-xl font-semibold leading-snug text-[color:var(--color-font-strong)] mb-2",
+  sm: "text-base font-semibold leading-snug text-[color:var(--color-font-strong)] mb-1"
+};
+
+const styles = `${sizes[size]} ${className}`;
 ---
 
-<div class={`mb-6 heading-lg`}>
-  <h1 class={`${className}`}>
-    {title}
-  </h1>
-</div>
+<Tag class={styles}>
+  <slot />
+</Tag>

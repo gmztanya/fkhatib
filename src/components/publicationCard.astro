@@ -1,16 +1,15 @@
 ---
 import Link from "./link.astro";
 import Button from "./button.astro";
+import Card from "./card.astro";
 
 const { publication } = Astro.props;
 
 const { title, authors, journal, year, doi, pdf } = publication;
 ---
 
-<div
-  class="border border-neutral-200 rounded-xl p-5 bg-white shadow-sm hover:shadow-md transition"
->
-  <!-- Top Meta -->
+<Card class="">
+  <!-- Top Meta Data -->
   <p class="text-sm text-muted mb-2">
     {year} · {journal}
   </p>
@@ -21,28 +20,25 @@ const { title, authors, journal, year, doi, pdf } = publication;
   </h3>
 
   <!-- Authors -->
-  <p class="text-sm italic text-strong mb-3">
+  <p class="text-sm italic text-strong mb-3 line-clamp-2">
     {authors.join(", ")}
   </p>
 
-  <!-- Doi (Only if exists) -->
+  <!-- Doi (Only if exists and not N/A) -->
   {
-    doi && (
-      <a
-        href={doi}
-        target="_blank"
-        class="text-sm text-strong underline mb-3 block"
-      >
+    doi && doi.toLowerCase() !== "n/a" && (
+      <Link href={doi} external newTab variant="muted" class="mb-3 block">
         {doi.replace("https://", "")}
-      </a>
+      </Link>
     )
   }
 
   <!-- Actions -->
   <div class="flex gap-3 mt-3 flex-wrap">
     <Button
-      class="copy-btn"
-      data-citation={`${authors.join(", ")}. ${title}. ${journal} (${year})${doi ? ` ${doi}` : ""}`}
+      data-citation={`${authors.join(", ")}. ${title}. ${journal} (${year})${
+        doi && doi.toLowerCase() !== "n/a" ? ` ${doi}` : ""
+      }`}
     >
       Copy Citation
     </Button>
@@ -60,4 +56,4 @@ const { title, authors, journal, year, doi, pdf } = publication;
       )
     }
   </div>
-</div>
+</Card>

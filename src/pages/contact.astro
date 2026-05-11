@@ -1,49 +1,49 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
 import Card from "../components/card.astro";
-import PageHeading from "../components/pageHeading.astro";
+import Heading from "../components/pageHeading.astro";
 import PageSection from "../components/pageSection.astro";
+
+import contact from "../data/contact.json";
 ---
 
 <MainLayout>
-
   <PageSection>
+    <Heading level="h1" size="xl"> Contact </Heading>
 
-    <PageHeading title="Contact" />
-
-    <p class="mb-5">
-      Get in touch regarding research collaborations, student opportunities or general inquiries.
+    <p class="mb-5 max-w-2xl text-neutral-700">
+      Get in touch regarding research collaborations, student opportunities,
+      or general inquiries.
     </p>
 
-    <div class="grid md:grid-cols-2 gap-4">
-
+    <div class="grid lg:grid-cols-2 gap-4">
       <!-- Left Side Content -->
       <div class="space-y-4">
+        {
+          contact.items.map((item) => (
+            <Card class="flex items-start gap-4">
 
-        <Card>
-          <h2 class="text-strong font-semibold mb-1">Email</h2>
-          <p>fkhatib@umassd.edu</p>
-        </Card>
+              <!-- Icon -->
+              <div class="mt-1 shrink-0">
+                <img
+                    src={item.icon}
+                    alt={`${item.title} icon`}
+                    class="h-6 w-6"
+                />
+              </div>
 
-        <Card>
-          <h2 class="text-strong font-semibold mb-1">Phone</h2>
-          <p>508 999 8265</p>
-        </Card>
+              <!-- Content -->
+              <div class="space-y-2">
+                <Heading level="h3" size="sm">
+                  {item.title}
+                </Heading>
 
-        <Card>
-          <h2 class="text-strong font-semibold mb-1">Office</h2>
-          <p>
-            Dion Building, Room 307A<br />
-            Department of Computer and Information Science<br />
-            University of Massachusetts Dartmouth
-          </p>
-        </Card>
+                <p set:html={item.value}></p>
+              </div>
 
-        <Card>
-          <h2 class="text-strong font-semibold mb-1">Fax</h2>
-          <p>508 999 9144</p>
-        </Card>
-
+            </Card>
+          ))
+        }
       </div>
 
       <!-- Right Side Content -->
@@ -54,9 +54,6 @@ import PageSection from "../components/pageSection.astro";
           loading="lazy"
         ></iframe>
       </Card>
-
     </div>
-
   </PageSection>
-
 </MainLayout>

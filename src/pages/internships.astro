@@ -1,43 +1,44 @@
 ---
 import GradientLayout from "../layouts/gradientLayout.astro";
-import PageHeading from "../components/pageHeading.astro";
+import PageSection from "../components/pageSection.astro";
+import Link from "../components/link.astro";
+import Heading from "../components/pageHeading.astro";
 ---
 
 <GradientLayout>
+  <PageSection>
+    <!-- Grid Layout -->
+    <div class="grid lg:grid-cols-2 items-center gap-8">
+      <!-- Left Side Content -->
+      <div class="max-w-xl">
+        <Heading level="h1" size="xl">
+          Summer Internships
+        </Heading>
 
-  <section class="min-h-[calc(100vh-120px)] flex items-center px-6">
+        <p class="text-lg text-muted mb-8">
+          Explore research opportunities in computational biology and citizen
+          science.
+        </p>
 
-    <div class="max-w-6xl mx-auto w-full">
-      <div class="grid md:grid-cols-[1.4fr_1fr] gap-4 md:gap-6 items-center">
+        <!-- CTA Block -->
+        <Link
+          href="https://rosettacommons.org/education/reu/"
+          external
+          newTab
+          class="cta-apply"
+        >
+          CLICK TO APPLY &rarr;
+        </Link>
+      </div>
 
-        <!-- Left Side Content -->
-        <div class="max-w-2xl">
-          <PageHeading title="Summer Internships" />
-
-          <p class="mb-6">
-            Explore research opportunities in computational biology and citizen science.
-          </p>
-
-          <a href="/contact">
-            <span class="text-4xl md:text-5xl font-black text-[#1f2937] 
-                         drop-shadow-[3px_3px_0px_#8AB83F]">
-              CLICK TO APPLY!
-            </span>
-          </a>
-        </div>
-
-        <!-- Right Side Image -->
-        <div class="flex justify-center md:justify-start">
-          <img
-            src="/images/internship.png"
-            alt="Internship illustration"
-            class="w-full max-w-lg md:max-w-xl drop-shadow-lg"
-          />
-        </div>
-
+      <!-- Right Side Image -->
+      <div class="flex justify-center lg:justify-end">
+        <img
+          src="/images/internship.png"
+          alt="Internship illustration"
+          class="w-full max-w-md md:max-w-lg lg:max-w-xl object-contain"
+        />
       </div>
     </div>
-
-  </section>
-
+  </PageSection>
 </GradientLayout>

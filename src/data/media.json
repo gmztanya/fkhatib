@@ -11,17 +11,18 @@
             "videoUrl": "https://www.youtube.com/embed/C6CZZIVPLns"
         },
         {
-            "title": "Public Lecture at Brown University",
-            "subtitle": "",
-            "videoUrl": "https://www.youtube.com/embed/Tu2uMiBGke0"
-        },
-        {
             "title": "The Contenders",
             "subtitle": "A Focus Forward short film",
             "videoUrl": "https://player.vimeo.com/video/57394084"
         }
     ],
-    "otherVideos": [],
+    "moreVideos": [
+        {
+            "title": "Public Lecture at Brown University",
+            "subtitle": "",
+            "videoUrl": "https://www.youtube.com/embed/Tu2uMiBGke0"
+        }
+    ],
     "otherMedia": [
         {
             "source": "NPR",

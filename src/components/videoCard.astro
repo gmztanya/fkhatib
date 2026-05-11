@@ -1,11 +1,11 @@
 ---
+import Card from "./card.astro";
+
 const { video } = Astro.props;
 const { title, subtitle, videoUrl } = video;
 ---
 
-<div
-  class="video-card border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-sm"
->
+<Card class="overflow-hidden">
   <!-- Video Container -->
   <div
     class="video-container relative aspect-video bg-neutral-100"
@@ -31,7 +31,7 @@ const { title, subtitle, videoUrl } = video;
 
     {subtitle && <p class="text-sm text-strong">{subtitle}</p>}
   </div>
-</div>
+</Card>
 
 <script>
   // Loading videos in iframes once they are ready to improve performance and user experience  

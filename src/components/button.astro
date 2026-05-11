@@ -7,20 +7,37 @@ const {
 } = Astro.props;
 
 const base = `
-  inline-block cursor-pointer
-  px-3 py-2 rounded-md
+  cursor-pointer
   transition-all duration-200 ease-in-out
 `;
 
-const variants = {
-  primary: "bg-[var(--color-primary)] text-[#F5F5F5] hover:bg-[#7aa535] shadow-md",
-  secondary: "bg-neutral-200 text-neutral-800 hover:bg-neutral-300",
-  ghost: "text-neutral-700 hover:bg-neutral-100"
+const variants: any = {
+  primary:
+    "px-3 py-2 rounded-md bg-[var(--color-primary)] text-[#F5F5F5] hover:bg-[#7aa535] shadow-md",
+
+  secondary:
+    "px-3 py-2 rounded-md bg-neutral-200 text-neutral-800 hover:bg-neutral-300",
+
+  ghost:
+    "px-3 py-2 rounded-md text-neutral-700 hover:bg-neutral-100",
+
+  hamburger:
+    "flex flex-col gap-1 p-2"
 };
 
 const styles = `${base} ${variants[variant]} ${className}`;
 ---
 
 <button type={type} class={styles} {...rest}>
-  <slot />
+  {
+    variant === "hamburger" ? (
+      <>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </>
+    ) : (
+      <slot />
+    )
+  }
 </button>
