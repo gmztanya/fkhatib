@@ -45,13 +45,8 @@ const { title, authors, journal, year, doi, pdf } = publication;
 
     {
       pdf && (
-        <Link
-          href={pdf}
-          external
-          newTab
-          class="px-3 py-3 text-sm bg-neutral-200 text-strong rounded-md no-underline"
-        >
-          View PDF
+        <Link href={pdf} external newTab>
+          <Button variant="secondary"> View PDF </Button>
         </Link>
       )
     }

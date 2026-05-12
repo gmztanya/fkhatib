@@ -4,115 +4,125 @@ import VideoCard from "../components/videoCard.astro";
 import Link from "../components/link.astro";
 import Heading from "../components/pageHeading.astro";
 import PageSection from "../components/pageSection.astro";
-import Button from "../components/button.astro";
 import Card from "../components/card.astro";
+import Divider from "../components/divider.astro";
 
 import media from "../data/media.json";
 
 const featuredVideos = media.featuredVideos;
 const moreVideos = media.moreVideos;
 const otherMedia = media.otherMedia;
+const allVideos = [...featuredVideos, ...moreVideos];
 ---
 
 <MainLayout>
   <PageSection class="space-y-4">
     <Heading level="h1" size="xl"> Media </Heading>
+    <Divider />
 
-    <!-- Featured Videos Section -->
-    <section>
-      <Heading level="h2" size="lg"> Featured Videos </Heading>
+    <p class="mt-3 text-neutral-600">
+      Explore talks, interviews, media coverage, and public engagement related
+      to our research.
+    </p>
 
-      <div class="relative">
-        <div class="embla overflow-hidden">
-          <div class="embla__container flex gap-4 m-4">
-            {
-              featuredVideos.map((video) => (
-                <div class="embla__slide embla-slide flex-[0_0_85%] sm:flex-[0_0_75%] md:flex-[0_0_65%] lg:flex-[0_0_55%]">
-                  <VideoCard video={video} />
-                </div>
-              ))
-            }
+    <!-- Media Container -->
+    <section class="overflow-hidden p-0">
+      <!-- Tabs -->
+      <div class="grid grid-cols-2 w-fit">
+        <button id="videosTab" class="tab-btn active-tab" type="button">
+          <div class="flex flex-col items-center">
+            <img src="/images/icons/video.svg" alt="Videos" class="h-10 w-10" />
+            <span class=""> Videos </span>
+          </div>
+        </button>
+
+        <button id="mediaTab" class="tab-btn" type="button">
+          <div class="flex flex-col items-center">
+            <img
+              src="/images/icons/media.svg"
+              alt="Media mentions"
+              class="h-10 w-10"
+            />
+            <span class=""> Media Mentions </span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Videos Panel -->
+      <Card id="videosPanel">
+        <div class="tab-panel p-2">
+          <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            {allVideos.map((video) => <VideoCard video={video} />)}
           </div>
         </div>
+      </Card>
 
-        <!-- Carousel Controls -->
-        <Button id="prevBtn" variant="ghost" class="carousel-btn left-4"
-          >&#8249;</Button
-        >
-        <Button id="nextBtn" variant="ghost" class="carousel-btn right-4"
-          >&#8250;</Button
-        >
-      </div>
-    </section>
+      <!-- Other media Panel -->
+      <Card id="mediaPanel" class="hidden" style="padding:0!important">
+        <div class="divide-y divide-neutral-200">
 
-    <!-- More Videos Section -->
-    {
-      moreVideos.length > 0 && (
-        <section class="mt-4">
-          <div class="flex justify-end">
-            <Button id="showMoreBtn" variant="primary">
-              More Videos
-            </Button>
-          </div>
-
-          <div id="moreVideosSection" class="hidden">
-            <Heading level="h2" size="lg">
-              More Videos
-            </Heading>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {moreVideos.map((video) => (
-                <VideoCard video={video} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Other Media Section -->
-    <section class="mt-6">
-      <Heading level="h2" size="lg"> Other Media Mentions </Heading>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-        {
-          otherMedia.map((item) => (
-            <Card class="group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-              <Link class="block group"
+          {
+            otherMedia.map((item) => (
+              <Link
+                class="group block p-5 transition-colors duration-300 hover:bg-[var(--color-secondary)]/[0.02]"
                 href={item.url}
-                newTab>
-                <div class="mb-2 inline-flex rounded-full bg-[var(--color-accent)]/50 px-3 py-1 text-xs font-semibold">
-                  {item.source}
-                </div>
+                newTab
+              >
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
 
-                <Heading level="h3" size="sm"> {item.title} </Heading>
+                  <!-- Left -->
+                  <div class="space-y-2">
+                    <div class="pill w-fit">
+                      {item.source}
+                    </div>
+                    <Heading
+                      level="h3"
+                      size="sm"
+                      class="transition-colors duration-300 group-hover:text-[var(--color-accent)]"
+                    >
+                      {item.title}
+                    </Heading>
+                  </div>
 
-                <div class="flex items-center text-sm text-neutral-500">
-                  Read article
-                  <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
+                  <!-- Right -->
+                  <div class="flex items-center text-sm text-muted whitespace-nowrap pt-1">
+                    Read article
+                    <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+                      &rarr;
+                    </span>
+                  </div>
+
                 </div>
               </Link>
-            </Card>
-          ))
-        }
-      </div>
+            ))
+          }
+        </div>
+      </Card>
+
     </section>
   </PageSection>
 </MainLayout>
 
-<script type="module" src="src/scripts/embla.js"></script>
-
 <script>
-  const btn = document.getElementById("showMoreBtn");
-  const section = document.getElementById("moreVideosSection");
+  const videosTab = document.getElementById("videosTab");
+  const mediaTab = document.getElementById("mediaTab");
 
-  if (btn && section) {
-    btn.addEventListener("click", () => {
-      section.classList.remove("hidden");
-      btn.style.display = "none";
-      section.scrollIntoView({ behavior: "smooth" });
-    });
-  }
+  const videosPanel = document.getElementById("videosPanel");
+  const mediaPanel = document.getElementById("mediaPanel");
+
+  videosTab?.addEventListener("click", () => {
+    videosTab.classList.add("active-tab");
+    mediaTab?.classList.remove("active-tab");
+
+    videosPanel?.classList.remove("hidden");
+    mediaPanel?.classList.add("hidden");
+  });
+
+  mediaTab?.addEventListener("click", () => {
+    mediaTab.classList.add("active-tab");
+    videosTab?.classList.remove("active-tab");
+
+    mediaPanel?.classList.remove("hidden");
+    videosPanel?.classList.add("hidden");
+  });
 </script>

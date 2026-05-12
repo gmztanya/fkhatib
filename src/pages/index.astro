@@ -1,5 +1,6 @@
 ---
 import GradientLayout from "../layouts/gradientLayout.astro";
+import MainLayout from "../layouts/mainLayout.astro";
 import Heading from "../components/pageHeading.astro";
 import PageSection from "../components/pageSection.astro";
 import Button from "../components/button.astro";
@@ -8,7 +9,7 @@ import Divider from "../components/divider.astro";
 import Card from "../components/card.astro";
 ---
 
-<GradientLayout>
+<MainLayout>
   <PageSection>
     <!-- Heading -->
     <div class="text-center">
@@ -16,13 +17,13 @@ import Card from "../components/card.astro";
         Scientific discovery by video game players
       </Heading>
 
-      <div class="mt-5 mb-5 flex justify-center">
-        <Divider class="bg-[var(--color-accent)]" />
+      <div class="mb-5 flex justify-center">
+        <Divider class="bg-[var(--color-secondary)]" />
       </div>
     </div>
 
     <!-- Content Cards -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-6 lg:gap-6">
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
       <Card>
         <div class="text-center px-2">
           <div class="mb-5 flex justify-center">
@@ -47,10 +48,10 @@ import Card from "../components/card.astro";
             <img src="images/icons/game.svg" alt="game" class="h-13 w-13" />
           </div>
           <p class="leading-relaxed">
-            Our research group is interested in engaging the public to help us
-            solve difficult scientific problems. We harness the collective
-            brainpower of humans worldwide to tackle critical problems posed in
-            computational biology.
+            We have worked with and studied how citizen scientists of the online
+            protein folding video game Foldit - with little or no prior
+            biochemistry experience—uncovered knowledge that eluded scientists
+            for years.
           </p>
         </div>
       </Card>
@@ -65,10 +66,8 @@ import Card from "../components/card.astro";
             />
           </div>
           <p class="leading-relaxed">
-            Our research group is interested in engaging the public to help us
-            solve difficult scientific problems. We harness the collective
-            brainpower of humans worldwide to tackle critical problems posed in
-            computational biology.
+            Our group is interested in combining the power of humans and
+            computers to tackle other difficult scientific problems.
           </p>
         </div>
       </Card>
@@ -87,4 +86,4 @@ import Card from "../components/card.astro";
       </Link>
     </div>
   </PageSection>
-</GradientLayout>
+</MainLayout>

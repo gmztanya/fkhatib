@@ -2,9 +2,9 @@
 import Link from "../components/link.astro";
 ---
 
-<footer class="footer-bg text-white px-4 py-6">
+<footer class="footer-bg text-white px-6 py-6 sm:px-20 sm:py-8">
 
-  <div class="max-w-7xl mx-auto flex justify-between items-center gap-6">
+  <div class="max-w-6xl mx-auto flex justify-between items-center gap-6">
 
     <!-- Left section -->
     <div class="text-sm flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
@@ -13,13 +13,13 @@ import Link from "../components/link.astro";
         For More Information:
       </span>
 
-      <div class="flex flex-col md:flex-row gap-1 md:gap-4">
+      <div class="footer flex flex-col md:flex-row gap-1 md:gap-4">
 
         <Link
           href="https://www.umassd.edu/engineering/cis/faculty/"
           newTab
           variant="nav"
-          class="text-base underline"         
+          class="text-base"         
         >
           UMass Dartmouth
         </Link>
@@ -28,7 +28,7 @@ import Link from "../components/link.astro";
           href="https://scholar.google.com/citations?user=1WSaBBsAAAAJ"
           newTab
           variant="nav"
-          class="text-base underline" 
+          class="text-base" 
         >
           Google Scholar Page
         </Link>
@@ -38,7 +38,7 @@ import Link from "../components/link.astro";
     </div>
 
     <!-- Right section -->
-    <div>
+    <div class="footer-img">
       <Link href="https://fold.it/about_foldit" newTab>
         <img src="/images/foldit-logo.svg" alt="Foldit" class="h-16 w-auto" />
       </Link>

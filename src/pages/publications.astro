@@ -3,6 +3,7 @@ import MainLayout from "../layouts/mainLayout.astro";
 import PublicationCard from "../components/publicationCard.astro";
 import Heading from "../components/pageHeading.astro";
 import PageSection from "../components/pageSection.astro";
+import Divider from "../components/divider.astro";
 
 import publications from "../data/publications.json";
 
@@ -14,6 +15,7 @@ const sortedPublications = [...publications].sort(
 <MainLayout>
   <PageSection>
     <Heading level="h1" size="xl"> Publications </Heading>
+    <Divider />
 
     <!-- Search -->
     <div class="mb-6">
@@ -21,12 +23,12 @@ const sortedPublications = [...publications].sort(
         type="text"
         id="searchInput"
         placeholder="Search by title, authors, or year..."
-        class="w-full px-4 py-2 border rounded-md"
+        class="w-full px-4 py-2 border border-[var(--color-border)]"
       />
     </div>
 
     <!-- Publications Grid -->
-    <div id="pubGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div id="pubGrid" class="grid grid-cols-1 xl:grid-cols-2 gap-4">
       {
         sortedPublications.map((pub) => (
           <div

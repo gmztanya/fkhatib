@@ -1,35 +1,32 @@
 ---
 import Card from "./card.astro";
+import Heading from "../components/pageHeading.astro";
+
 
 const { video } = Astro.props;
 const { title, subtitle, videoUrl } = video;
 ---
-
-<Card class="overflow-hidden">
+<Card class="overflow-hidden" style="padding:0!important">
   <!-- Video Container -->
-  <div
-    class="video-container relative aspect-video bg-neutral-100"
-    data-video-url={videoUrl}
-  >
+  <div class="video-container relative aspect-video" data-video-url={videoUrl}>
     <!-- Loader -->
-    <div
-      class="loader absolute inset-0 flex flex-col items-center justify-center"
-    >
-      <div
-        class="w-6 h-6 border-2 border-neutral-400 border-t-transparent rounded-full animate-spin mb-2"
-      >
-      </div>
-      <p class="text-xs text-muted">Loading video...</p>
+    <div class="loader absolute inset-0 flex flex-col items-center justify-center">
+      <p class="text-xs text-muted">
+        Loading video...
+      </p>
     </div>
   </div>
 
   <!-- Content -->
-  <div class="p-4 text-center">
-    <h3 class="text-md font-semibold text-strong mb-1">
-      {title}
-    </h3>
-
-    {subtitle && <p class="text-sm text-strong">{subtitle}</p>}
+  <div class="px-4 pt-3 pb-4">
+    <Heading level="h3" size="md"> {title} </Heading>
+    {
+      subtitle && (
+        <p class="text-sm">
+          {subtitle}
+        </p>
+      )
+    }
   </div>
 </Card>
 

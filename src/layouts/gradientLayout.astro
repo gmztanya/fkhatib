@@ -15,9 +15,15 @@ import Footer from "../components/footer.astro";
   <body class="min-h-screen flex flex-col">
     <Header />
 
-    <main
+    <!-- <main
       class="flex-grow w-full bg-cover bg-center bg-no-repeat px-6 py-6 sm:px-8 sm:py-8"
       style="background-image: url('/images/bgimg.png');"
+    >
+      <slot />
+    </main> -->
+
+    <main
+      class="flex-grow w-full bg-style bg-cover bg-center bg-no-repeat px-6 py-6 sm:px-8 sm:py-8"
     >
       <slot />
     </main>

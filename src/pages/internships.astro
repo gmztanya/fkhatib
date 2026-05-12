@@ -1,44 +1,55 @@
 ---
 import GradientLayout from "../layouts/gradientLayout.astro";
-import PageSection from "../components/pageSection.astro";
-import Link from "../components/link.astro";
+import MainLayout from "../layouts/mainLayout.astro";
 import Heading from "../components/pageHeading.astro";
+import PageSection from "../components/pageSection.astro";
+import Button from "../components/button.astro";
+import Link from "../components/link.astro";
+import Divider from "../components/divider.astro";
+import Card from "../components/card.astro";
 ---
 
-<GradientLayout>
+<MainLayout>
   <PageSection>
-    <!-- Grid Layout -->
-    <div class="grid lg:grid-cols-2 items-center gap-8">
-      <!-- Left Side Content -->
-      <div class="max-w-xl">
-        <Heading level="h1" size="xl">
-          Summer Internships
-        </Heading>
+    <!-- Content Cards -->
+    <div class="flex flex-col items-center text-center">
+        <div class="text-center">
+          <Heading level="h1" size="xl"> Summer Internships </Heading>
+          <div class="flex justify-center">
+            <Divider class="bg-[var(--color-secondary)]" />
+          </div>
+        </div>
 
-        <p class="text-lg text-muted mb-8">
-          Explore research opportunities in computational biology and citizen
-          science.
-        </p>
+        <div class="px-2 space-y-6">
+          <div>
+            <p class="text-lg font-semibold">
+              Join Our Research Community
+            </p>
 
-        <!-- CTA Block -->
-        <Link
-          href="https://rosettacommons.org/education/reu/"
-          external
-          newTab
-          class="cta-apply"
-        >
-          CLICK TO APPLY &rarr;
-        </Link>
-      </div>
+            <p class="text-lg md:text-xl leading-relaxed text-neutral-700 max-w-2xl mx-auto">
+              Explore opportunities in computational biology, citizen science,
+              and collaborative research.
+            </p>
+          </div>
 
-      <!-- Right Side Image -->
-      <div class="flex justify-center lg:justify-end">
-        <img
-          src="/images/internship.png"
-          alt="Internship illustration"
-          class="w-full max-w-md md:max-w-lg lg:max-w-xl object-contain"
-        />
-      </div>
+          <div>
+            <Link
+              href="https://rosettacommons.org/education/reu/"
+              external
+              newTab
+            >
+              <Button variant="primary"> Apply Now &rarr; </Button>
+            </Link>
+          </div>
+
+          <div class="flex justify-center">
+            <img
+              src="/images/internship.png"
+              alt="research"
+              class="w-full max-w-xs xl:max-w-sm mx-auto object-contain drop-shadow-xl"
+            />
+          </div>
+        </div>
     </div>
   </PageSection>
-</GradientLayout>
+</MainLayout>
