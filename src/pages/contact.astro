@@ -6,6 +6,7 @@ import PageSection from "../components/pageSection.astro";
 import Divider from "../components/divider.astro";
 
 import contact from "../data/contact.json";
+import AppImage from "../components/appImage.astro";
 ---
 
 <MainLayout>
@@ -27,10 +28,10 @@ import contact from "../data/contact.json";
 
               <!-- Icon -->
               <div class="mt-1 shrink-0">
-                <img
-                    src={item.icon}
-                    alt={`${item.title} icon`}
-                    class="h-10 w-10"
+                <AppImage
+                  src={item.icon}
+                  alt={`${item.title} icon`}
+                  variant="icon"
                 />
               </div>
 

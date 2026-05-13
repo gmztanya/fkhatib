@@ -6,6 +6,7 @@ import Heading from "../components/pageHeading.astro";
 import PageSection from "../components/pageSection.astro";
 import Card from "../components/card.astro";
 import Divider from "../components/divider.astro";
+import AppImage from "../components/appImage.astro";
 
 import media from "../data/media.json";
 
@@ -31,17 +32,21 @@ const allVideos = [...featuredVideos, ...moreVideos];
       <div class="grid grid-cols-2 w-fit">
         <button id="videosTab" class="tab-btn active-tab" type="button">
           <div class="flex flex-col items-center">
-            <img src="/images/icons/video.svg" alt="Videos" class="h-10 w-10" />
+            <AppImage
+              src="/images/icons/video.svg"
+              alt="Videos"
+              variant="icon"
+            />
             <span class=""> Videos </span>
           </div>
         </button>
 
         <button id="mediaTab" class="tab-btn" type="button">
           <div class="flex flex-col items-center">
-            <img
+            <AppImage
               src="/images/icons/media.svg"
               alt="Media mentions"
-              class="h-10 w-10"
+              variant="icon"
             />
             <span class=""> Media Mentions </span>
           </div>

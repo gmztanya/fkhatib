@@ -4,6 +4,7 @@ import Divider from "../components/divider.astro";
 import Card from "../components/card.astro";
 import Heading from "../components/pageHeading.astro";
 import PageSection from "../components/pageSection.astro";
+import AppImage from "../components/appImage.astro";
 
 import cv from "../data/cv.json";
 ---
@@ -32,7 +33,7 @@ import cv from "../data/cv.json";
 
         <!-- Image -->
         <div class="flex justify-center md:justify-end">
-          <img
+          <AppImage
             src={cv.profile.image}
             alt={cv.profile.name}
             class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md"

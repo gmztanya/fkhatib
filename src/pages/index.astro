@@ -6,6 +6,7 @@ import Button from "../components/button.astro";
 import Link from "../components/link.astro";
 import Divider from "../components/divider.astro";
 import Card from "../components/card.astro";
+import AppImage from "../components/appImage.astro";
 ---
 
 <MainLayout>
@@ -26,10 +27,10 @@ import Card from "../components/card.astro";
       <Card>
         <div class="text-center px-2">
           <div class="mb-5 flex justify-center">
-            <img
+            <AppImage
               src="images/icons/research.svg"
               alt="research"
-              class="h-13 w-13"
+              variant="icon"
             />
           </div>
           <p class="leading-relaxed">
@@ -44,7 +45,11 @@ import Card from "../components/card.astro";
       <Card>
         <div class="text-center px-2">
           <div class="mb-5 flex justify-center">
-            <img src="images/icons/game.svg" alt="game" class="h-13 w-13" />
+            <AppImage
+              src="images/icons/game.svg"
+              alt="game"
+              variant="icon"
+            />
           </div>
           <p class="leading-relaxed">
             We have worked with and studied how citizen scientists of the online
@@ -58,10 +63,10 @@ import Card from "../components/card.astro";
       <Card>
         <div class="text-center px-2">
           <div class="mb-5 flex justify-center">
-            <img
+            <AppImage
               src="images/icons/hci.svg"
               alt="human computer collab"
-              class="h-13 w-13"
+              variant="icon"
             />
           </div>
           <p class="leading-relaxed">

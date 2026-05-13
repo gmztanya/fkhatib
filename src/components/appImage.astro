@@ -1,0 +1,38 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  variant?: "icon" | "none";
+  class?: string;
+}
+
+const base = import.meta.env.BASE_URL;
+
+const {
+  src,
+  alt,
+  variant = "none",
+  class: className = ""
+}: Props = Astro.props;
+
+const variants: Record<string, string> = {
+  icon: "h-10 w-10 object-contain",
+  none: ""
+};
+
+const isExternal =
+  src.startsWith("http") ||
+  src.startsWith("https");
+
+const finalSrc = isExternal
+  ? src
+  : `${base}/${src.replace(/^\/+/, "")}`;
+
+const styles = `${variants[variant] ?? ""} ${className}`;
+---
+
+<img
+  src={finalSrc}
+  alt={alt}
+  class={styles}
+/>
