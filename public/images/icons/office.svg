@@ -1,6 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-viewBox="0 0 24 24" stroke="#8AB83F" stroke-width="2">
-  <path stroke-linecap="round" stroke-linejoin="round"
-  d="M3 21h18M9 8h1m-1 4h1m4-4h1m-1 4h1
-  M5 21V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14" />
-</svg>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#8AB83F">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="SVGRepo_iconCarrier">
+<path fill="#8AB83F" d="M192 128v704h384V128H192zm-32-64h448a32 32 0 0 1 32 32v768a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32V96a32 32 0 0 1 32-32z"/>
+<path fill="#8AB83F" d="M256 256h256v64H256v-64zm0 192h256v64H256v-64zm0 192h256v64H256v-64zm384-128h128v64H640v-64zm0 128h128v64H640v-64zM64 832h896v64H64v-64z"/>
+<path fill="#8AB83F" d="M640 384v448h192V384H640zm-32-64h256a32 32 0 0 1 32 32v512a32 32 0 0 1-32 32H608a32 32 0 0 1-32-32V352a32 32 0 0 1 32-32z"/>
+</g>
+</svg>

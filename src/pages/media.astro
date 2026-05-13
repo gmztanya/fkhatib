@@ -17,95 +17,83 @@ const allVideos = [...featuredVideos, ...moreVideos];
 ---
 
 <MainLayout>
-  <PageSection class="space-y-4">
-    <Heading level="h1" size="xl"> Media </Heading>
-    <Divider />
+    <PageSection class="space-y-4">
+        <Heading level="h1" size="xl"> Media </Heading>
+        <Divider />
 
-    <p class="mt-3 text-neutral-600">
-      Explore talks, interviews, media coverage, and public engagement related
-      to our research.
-    </p>
+        <p class="mt-3 text-neutral-600">
+        Explore talks, interviews, media coverage, and public engagement related
+        to our research.
+        </p>
 
-    <!-- Media Container -->
-    <section class="overflow-hidden p-0">
-      <!-- Tabs -->
-      <div class="grid grid-cols-2 w-fit">
-        <button id="videosTab" class="tab-btn active-tab" type="button">
-          <div class="flex flex-col items-center">
-            <AppImage
-              src="/images/icons/video.svg"
-              alt="Videos"
-              variant="icon"
-            />
-            <span class=""> Videos </span>
-          </div>
-        </button>
-
-        <button id="mediaTab" class="tab-btn" type="button">
-          <div class="flex flex-col items-center">
-            <AppImage
-              src="/images/icons/media.svg"
-              alt="Media mentions"
-              variant="icon"
-            />
-            <span class=""> Media Mentions </span>
-          </div>
-        </button>
-      </div>
-
-      <!-- Videos Panel -->
-      <Card id="videosPanel">
-        <div class="tab-panel p-2">
-          <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            {allVideos.map((video) => <VideoCard video={video} />)}
-          </div>
-        </div>
-      </Card>
-
-      <!-- Other media Panel -->
-      <Card id="mediaPanel" class="hidden" style="padding:0!important">
-        <div class="divide-y divide-neutral-200">
-
-          {
-            otherMedia.map((item) => (
-              <Link
-                class="group block p-5 transition-colors duration-300 hover:bg-[var(--color-secondary)]/[0.02]"
-                href={item.url}
-                newTab
-              >
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-
-                  <!-- Left -->
-                  <div class="space-y-2">
-                    <div class="pill w-fit">
-                      {item.source}
+        <!-- Media Container -->
+        <section class="overflow-hidden p-0">
+            <!-- Tab Navigation -->
+            <div class="grid grid-cols-2 w-fit">
+                <button id="videosTab" class="media-nav-btn active-media-nav" type="button">
+                    <div class="flex flex-col items-center">
+                        <p>Videos</p>
                     </div>
-                    <Heading
-                      level="h3"
-                      size="sm"
-                      class="transition-colors duration-300 group-hover:text-[var(--color-accent)]"
-                    >
-                      {item.title}
-                    </Heading>
-                  </div>
+                </button>
 
-                  <!-- Right -->
-                  <div class="flex items-center text-sm text-muted whitespace-nowrap pt-1">
-                    Read article
-                    <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                      &rarr;
-                    </span>
-                  </div>
+                <button id="mediaTab" class="media-nav-btn" type="button">
+                    <div class="flex flex-col items-center">
+                        <p>Media Mentions</p>
+                </button>
+            </div>
 
+            <!-- Videos Panel -->
+            <Card id="videosPanel">
+                <div class="tab-panel p-2">
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                        {allVideos.map((video) => <VideoCard video={video} />)}
+                    </div>
                 </div>
-              </Link>
-            ))
-          }
-        </div>
-      </Card>
+            </Card>
 
-    </section>
-  </PageSection>
+            <!-- Other media Panel -->
+            <Card id="mediaPanel" class="hidden" style="padding:0!important">
+                <div class="divide-y divide-neutral-200">
+                {
+                    otherMedia.map((item) => (
+                    <Link
+                    class="group block p-5 transition-colors duration-300 hover:bg-[var(--color-secondary)]/[0.02]"
+                    href={item.url}
+                    newTab
+                    >
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
+
+                            <!-- Left -->
+                            <div class="space-y-2">
+                                <div class="pill w-fit">
+                                    {item.source}
+                                </div>
+                                <Heading
+                                    level="h3"
+                                    size="sm"
+                                    class="transition-colors duration-300 group-hover:text-[var(--color-accent)]"
+                                >
+                                    {item.title}
+                                </Heading>
+                            </div>
+
+                            <!-- Right -->
+                            <div class="flex items-center text-sm text-muted whitespace-nowrap pt-1">
+                                Read article
+                                <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+                                &rarr;
+                                </span>
+                            </div>
+
+                        </div>
+                    </Link>
+                    ))
+                }
+                </div>
+            </Card>
+
+        </section>
+    </PageSection>
 </MainLayout>
 
 <script>
@@ -116,16 +104,16 @@ const allVideos = [...featuredVideos, ...moreVideos];
   const mediaPanel = document.getElementById("mediaPanel");
 
   videosTab?.addEventListener("click", () => {
-    videosTab.classList.add("active-tab");
-    mediaTab?.classList.remove("active-tab");
+    videosTab.classList.add("active-media-nav");
+    mediaTab?.classList.remove("active-media-nav");
 
     videosPanel?.classList.remove("hidden");
     mediaPanel?.classList.add("hidden");
   });
 
   mediaTab?.addEventListener("click", () => {
-    mediaTab.classList.add("active-tab");
-    videosTab?.classList.remove("active-tab");
+    mediaTab.classList.add("active-media-nav");
+    videosTab?.classList.remove("active-media-nav");
 
     mediaPanel?.classList.remove("hidden");
     videosPanel?.classList.add("hidden");
